@@ -5,7 +5,7 @@
 #############################################################
 
 - name: create bastion Environment
-  cloudformation:
+  amazon.aws.cloudformation:
 #    profile: "{{ eksexample_aws_profilename }}"
     stack_name: "{{ eksexample_clustername }}-bastion"
     state: "present"
