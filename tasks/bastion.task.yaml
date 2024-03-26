@@ -11,10 +11,6 @@
     region: "{{ eksexample_region }}"
   register: ec2_key_result
   
-- name: Save Private Key for Bastion Access
-  copy: content="{{ ec2_key_result.key.private_key }}" dest="./secrets/id_rsa_eks" mode=0600
-  when: ec2_key_result.changed
-
 - name: create bastion Environment
   cloudformation:
     profile: "{{ eksexample_aws_profilename }}"
