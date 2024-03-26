@@ -4,13 +4,6 @@
 ## created by David Surey, Amazon Web Services, 2020       ##
 #############################################################
 
-- name: Create EC2 KeyPair 
-  ec2_key:
-    profile: "{{ eksexample_aws_profilename }}"
-    name: "{{ eksexample_clustername }}-keypair"
-    region: "{{ eksexample_region }}"
-  register: ec2_key_result
-  
 - name: create bastion Environment
   cloudformation:
     profile: "{{ eksexample_aws_profilename }}"
