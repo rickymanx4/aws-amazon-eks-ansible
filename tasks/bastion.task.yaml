@@ -6,14 +6,14 @@
 
 - name: create bastion Environment
   cloudformation:
-    profile: "{{ eksexample_aws_profilename }}"
+#    profile: "{{ eksexample_aws_profilename }}"
     stack_name: "{{ eksexample_clustername }}-bastion"
     state: "present"
     region: "{{ eksexample_region }}"
     disable_rollback: false
     template_parameters:
       EKSBastionInstanceType: "{{ eksexample_bastion_instancetype }}"
-      EKSBastionKeyPairName: "{{ eksexample_clustername }}-keypair"
+      EKSBastionKeyPairName: "ec2-key"
     template: "./cloudformation/eks-bastion.template.yaml"
   register: bastion_informations
 
